@@ -23,7 +23,8 @@ export interface Props {
   theme?: string;
 }
 
-const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
+const { socialLinks = [], secondaryLinks = [], links = [], theme = 'light' } = Astro.props;
+const currentYear = new Date().getFullYear();
 ---
 
 <footer class:list={[{ dark: theme === 'dark' }, 'relative border-t border-gray-200 dark:border-slate-800 not-prose']}>
@@ -92,7 +93,9 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
       }
 
       <div class="text-sm mr-4 dark:text-slate-400">
-        <Fragment set:html={footNote} />
+        ©
+        {currentYear} made with ❤️ by
+        <a href="https://ishlahyt.github.io/" target="_blank" class="footer-link fw-bolder"> <b>IshlahYT</b></a>
       </div>
     </div>
   </div>

@@ -2,9 +2,9 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero2 from '~/components/widgets/Hero2.astro';
-import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
+import Prices from '~/components/widgets/Pricing.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
@@ -27,7 +27,7 @@ const metadata = {
       {
         variant: 'primary',
         text: 'Daftar Sekarang',
-        href: 'https://github.com/onwidget/astrowind',
+        href: 'https://www.ppdb.smpmduta.sch.id/',
         target: '_blank',
         icon: 'tabler:square-rounded-arrow-right',
       },
@@ -50,9 +50,123 @@ const metadata = {
     </Fragment>
   </Hero2>
 
-  <!-- Note Widget ******************* -->
+  <!-- Pricing Widget ******************* -->
 
-  <Note />
+  <Prices
+    title="Program Kelas"
+    subtitle="SMP Muhammadiyah 2 Taman"
+    prices={[
+      {
+        title: 'Excellent Class',
+        subtitle: 'Optimal choice for personal use',
+        price: 29,
+        period: 'per month',
+        items: [
+          {
+            description: 'Science ',
+          },
+          {
+            description: 'Technology',
+          },
+          {
+            description: 'Art (Broadcasting)',
+          },
+          {
+            description: 'Enterprenur Cooking',
+          },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Get started',
+          href: '#',
+        },
+      },
+      {
+        title: 'International Class',
+        subtitle: 'Optimal choice for small teams',
+        price: 69,
+        period: 'Per Month',
+        items: [
+          {
+            description: 'Public Speaking',
+          },
+          {
+            description: 'Broadcasting and Show',
+          },
+          {
+            description: 'Writing and Design ',
+          },
+          {
+            description: 'English Olympiad',
+          },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Get started',
+          href: '#',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'popular',
+      },
+      {
+        title: 'Tahfidz Class',
+        subtitle: 'Optimal choice for companies',
+        price: 199,
+        period: 'Per Month',
+        items: [
+          {
+            description: 'Qori’',
+          },
+          {
+            description: 'Public Speaking / Pildacil',
+          },
+          {
+            description: 'Khot / Kaligrafi',
+          },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Get started',
+          href: '#',
+        },
+      },
+    ]}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="Alur Pendaftaran"
+    subtitle="Calon Peserta Didik Baru SMP Muhammadiyah 2 Taman"
+    items={[
+      {
+        title: 'Formulir <span class="font-medium">Pendaftarad</span>',
+        description:
+          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
+        icon: 'tabler:file-text',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Add content</em>',
+        description:
+          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
+        icon: 'tabler:messages',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Customize styles</span>',
+        description:
+          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
+        icon: 'tabler:coins',
+      },
+      {
+        title: 'Ready!',
+        icon: 'tabler:shirt',
+      },
+      {
+        title: 'Ready!',
+        icon: 'tabler:check',
+      },
+    ]}
+  />
 
   <!-- Features Widget *************** -->
 
@@ -213,40 +327,6 @@ const metadata = {
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
-
-  <!-- Steps Widget ****************** -->
-
-  <Steps
-    title="Get your dream website up and running in no time with AstroWind."
-    items={[
-      {
-        title: 'Step 1: <span class="font-medium">Download</span>',
-        description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
-        icon: 'tabler:package',
-      },
-      {
-        title: 'Step 2: <span class="font-medium">Add content</em>',
-        description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
-      },
-      {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
-        description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:paint',
-      },
-      {
-        title: 'Ready!',
-        icon: 'tabler:check',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
-    }}
-  />
 
   <!-- Features2 Widget ************** -->
 
