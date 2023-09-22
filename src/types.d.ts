@@ -141,6 +141,7 @@ export interface Price {
   subtitle?: string;
   description?: string;
   price?: number;
+  image?: string | unknown;
   period?: string;
   items?: Array<Item>;
   callToAction?: CallToAction;
@@ -223,6 +224,7 @@ export interface Stats extends Headline, Widget {
 }
 
 export interface Pricing extends Headline, Widget {
+  image?: string | unknown;
   prices?: Array<Price>;
 }
 
