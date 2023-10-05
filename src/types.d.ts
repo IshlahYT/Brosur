@@ -224,8 +224,9 @@ export interface Stats extends Headline, Widget {
 }
 
 export interface Pricing extends Headline, Widget {
-  image?: string | unknown;
+  images?: Array<Image>;
   prices?: Array<Price>;
+  image?: string | unknown;
 }
 
 export interface Testimonials extends Headline, Widget {

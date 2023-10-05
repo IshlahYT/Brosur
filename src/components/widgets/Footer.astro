@@ -16,6 +16,9 @@ interface Links {
 }
 
 export interface Props {
+  text: string;
+  url: string | URL;
+  class?: string;
   links: Array<Links>;
   secondaryLinks: Array<Link>;
   socialLinks: Array<Link>;
@@ -23,8 +26,9 @@ export interface Props {
   theme?: string;
 }
 
-const { socialLinks = [], secondaryLinks = [], links = [], theme = 'light' } = Astro.props;
+const { secondaryLinks = [], links = [], theme = 'light' } = Astro.props;
 const currentYear = new Date().getFullYear();
+const { text, url, class: className = 'inline-block' } = Astro.props;
 ---
 
 <footer class:list={[{ dark: theme === 'dark' }, 'relative border-t border-gray-200 dark:border-slate-800 not-prose']}>
@@ -71,31 +75,51 @@ const currentYear = new Date().getFullYear();
       }
     </div>
     <div class="md:flex md:items-center md:justify-between py-6 md:py-8">
-      {
-        socialLinks?.length ? (
-          <ul class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4">
-            {socialLinks.map(({ ariaLabel, href, text, icon }) => (
-              <li>
-                <a
-                  class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-                  aria-label={ariaLabel}
-                  href={href}
-                >
-                  {icon && <Icon name={icon} class="w-5 h-5" />}
-                  <Fragment set:html={text} />
-                </a>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          ''
-        )
-      }
-
       <div class="text-sm mr-4 dark:text-slate-400">
         ©
         {currentYear} made with ❤️ by
         <a href="https://ishlahyt.github.io/" target="_blank" class="footer-link fw-bolder"> <b>IshlahYT</b></a>
+      </div>
+
+      <div class={className}>
+        <a href="https://www.instagram.com/spemduta/">
+          <button
+            class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+            title="Instagram"
+            data-aw-url={url}
+            data-aw-text={text}
+            ><Icon name="tabler:brand-instagram" class="w-6 h-6" />
+          </button>
+        </a>
+        <a href="https://www.youtube.com/@spemduta135">
+          <button
+            class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+            title="Youtube"
+            data-aw-url={url}
+            data-aw-text={text}
+            ><Icon name="tabler:brand-youtube" class="w-6 h-6" />
+          </button>
+        </a>
+        <a href="https://www.tiktok.com/@spemduta?is_from_webapp=1&sender_device=pc">
+          <button
+            class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+            title="Tiktok"
+            data-aw-url={url}
+            data-aw-text={text}
+            ><Icon name="tabler:brand-tiktok" class="w-6 h-6" />
+          </button>
+        </a>
+        <a
+          href="https://api.whatsapp.com/send?phone=6281232331554&text=Assalamualaikum,%20Saya%20ingin%20bertanya%20tentang%20PPDB%20SPEMDUTA."
+        >
+          <button
+            class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+            title="Tiktok"
+            data-aw-url={url}
+            data-aw-text={text}
+            ><Icon name="tabler:brand-whatsapp" class="w-6 h-6" />
+          </button>
+        </a>
       </div>
     </div>
   </div>

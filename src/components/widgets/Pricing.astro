@@ -10,6 +10,7 @@ const {
   title = '',
   subtitle = '',
   tagline = '',
+  image = await Astro.slots.render('image'),
   prices = [],
 
   id,
@@ -17,7 +18,6 @@ const {
   classes = {},
   bg = await Astro.slots.render('bg'),
 } = Astro.props as Pricing;
-const image = await Astro.slots.render('image');
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
@@ -50,8 +50,8 @@ const image = await Astro.slots.render('image');
                           ) : (
                             <Image
                               class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
-                              width={500}
-                              height={500}
+                              width={50}
+                              height={50}
                               widths={[400, 768]}
                               sizes="(max-width: 768px) 100vw, 432px"
                               layout="responsive"
