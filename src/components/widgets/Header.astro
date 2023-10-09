@@ -3,7 +3,6 @@ import { Icon } from 'astro-icon/components';
 import Logo from '~/components/Logo.astro';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
-import Button from '~/components/ui/Button.astro';
 
 import { getHomePermalink } from '~/utils/permalinks';
 import type { CallToAction } from '~/types';
@@ -132,13 +131,11 @@ const currentPath = `/${new URL(Astro.url).pathname}`;
         {
           actions?.length ? (
             <span class="ml-4 rtl:ml-0 rtl:mr-4">
-              {actions.map((btnProps) => (
-                <a href="https://www.ppdb.smpmduta.sch.id/">
-                  <Button {btnProps} class="ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none text-sm w-auto">
-                    Daftar
-                  </Button>
-                </a>
-              ))}
+              <a href="https://www.ppdb.smpmduta.sch.id/">
+                <button class="rounded-full bg-white ml-2 py-2.5 px-5.5 md:px-6 font-semibold text-sm w-auto shadow-none ring-1 ring-inset ring-gray-400 hover:bg-gray-50">
+                  Daftar
+                </button>
+              </a>
             </span>
           ) : (
             ''

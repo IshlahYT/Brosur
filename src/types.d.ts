@@ -281,4 +281,24 @@ export interface Content extends Headline, Widget {
   callToAction?: CallToAction;
 }
 
+interface SwiperOptions {
+  loop?: boolean;
+  spaceBetween?: number;
+  grabCursor?: boolean;
+  pagination?: {
+    el: string;
+    clickable: boolean;
+    dynamicBullets: boolean;
+  };
+  navigation?: {
+    nextEl: string;
+    prevEl: string;
+  };
+  breakpoints?: {
+    [key: number]: {
+      slidesPerView: number;
+    };
+  };
+}
+
 export interface Contact extends Headline, Form, Widget {}
