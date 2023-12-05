@@ -1,23 +1,9 @@
-<!-- ---
+---
 import Headline from '~/components/ui/Headline.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Button from '~/components/ui/Button.astro';
 import Image from '~/components/common/Image.astro';
-import 'node_modules/swiper/swiper-bundle';
-import 'node_modules/swiper/swiper-bundle.min';
-import 'node_modules/swiper/swiper-main';
-import 'node_modules/swiper/swiper-bundle.min.css';
-import 'node_modules/swiper/swiper';
-import 'node_modules/swiper/swiper-bundle.css'; // Impor stylesheet Swiper
-// swiper bundle styles
-import 'node_modules/swiper/swiper-bundle.min.css';
 
-// swiper core styles
-import 'node_modules/swiper/swiper.min.css';
-
-// modules styles
-import 'node_modules/swiper/components/navigation/navigation.min.css';
-import 'node_modules/swiper/components/pagination/pagination.min.css';
 import type { Testimonials } from '~/types';
 
 const {
@@ -34,74 +20,95 @@ const {
 } = Astro.props as Testimonials;
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`card_container swiper ${classes?.container ?? ''}`} bg={bg}>
+<WidgetWrapper id={id} isDark={isDark} containerClass={`card_container ${classes?.container ?? ''}`} bg={bg}>
   <div class="card-content">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <div class="card-article max-w-6xl mx-auto swiper-slide">
-          <Headline title={title} subtitle={subtitle} tagline={tagline} />
+    <div class="card-article max-w-6xl mx-auto">
+      <Headline title={title} subtitle={subtitle} tagline={tagline} />
 
-          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {
-              testimonials &&
-                testimonials.map(({ title, testimonial, image }) => (
-                  <div class="flex h-auto">
-                    <div class="flex flex-col p-4 md:p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-600">
-                      <div class="relative m-auto">
-                        {image && (
-                          <div class="h-180 w-180">
-                            {typeof image === 'string' ? (
-                              <Fragment set:html={image} />
-                            ) : (
-                              <Image
-                                class="h-180 w-180"
-                                width={180}
-                                height={180}
-                                widths={[400, 768]}
-                                layout="fixed"
-                                {...(image as any)}
-                              />
-                            )}
-                          </div>
-                        )}
-                      </div>
+      {
+        testimonials && testimonials.length > 0 && (
+          <div
+            class="carousel slide grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            id="carouselExampleIndicators"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-indicators">
+              {testimonials.map((_, index) => (
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to={index.toString()}
+                  class={index === 0 ? 'active' : ''}
+                  aria-label={`Slide ${index + 1}`}
+                />
+              ))}
+            </div>
 
-                      <hr class="border-slate-200 dark:border-slate-600 my-4" />
-
-                      {title && <h2 class="text-lg font-medium leading-6 pb-4">{title}</h2>}
-                      {testimonial && (
-                        <blockquote class="flex-auto">
-                          <p class="text-muted">" {testimonial} "</p>
-                        </blockquote>
+            <div class="carousel-inner">
+              {testimonials.map(({ title, testimonial, image }, index) => (
+                <div class={`carousel-item ${index === 0 ? 'active' : ''} flex h-auto`}>
+                  <div class="carousel-item-content flex flex-col p-4 md:p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-600">
+                    <div class="relative m-auto">
+                      {image && (
+                        <div class="h-180 w-180">
+                          {typeof image === 'string' ? (
+                            <Fragment set:html={image} />
+                          ) : (
+                            <Image
+                              class="h-180 w-180"
+                              width={180}
+                              height={180}
+                              widths={[400, 768]}
+                              layout="fixed"
+                              {...(image as any)}
+                            />
+                          )}
+                        </div>
                       )}
                     </div>
+
+                    <hr class="border-slate-200 dark:border-slate-600 my-4" />
+
+                    {title && <h2 class="text-lg font-medium leading-6 pb-4">{title}</h2>}
+                    {testimonial && (
+                      <blockquote class="flex-auto">
+                        <p class="text-muted">" {testimonial} "</p>
+                      </blockquote>
+                    )}
                   </div>
-                ))
-            }
+                </div>
+              ))}
+            </div>
+
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev"
+            >
+              <span class="carousel-control-prev-icon" aria-hidden="true" />
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next"
+            >
+              <span class="carousel-control-next-icon" aria-hidden="true" />
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
-          {
-            callToAction && (
-              <div class="flex justify-center mx-auto w-fit mt-8 md:mt-12 font-medium">
-                <Button {...callToAction} />
-              </div>
-            )
-          }
-        </div>
-      </div>
+        )
+      }
+
+      {
+        callToAction && (
+          <div class="flex justify-center mx-auto w-fit mt-8 md:mt-12 font-medium">
+            <Button {...callToAction} />
+          </div>
+        )
+      }
     </div>
-
-    <div class="swiper-button-next">
-      <i class="ri-arrow-right-s-line"></i>
-    </div>
-
-    <div class="swiper-button-prev">
-      <i class="ri-arrow-left-s-line"></i>
-    </div>
-
-    <div class="swiper-pagination"></div>
-
-    <div class="swiper-scrollbar"></div>
   </div>
-  <br />
-  <br />
-</WidgetWrapper> -->
+</WidgetWrapper>;

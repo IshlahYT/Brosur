@@ -78,7 +78,13 @@ const { text, url, class: className = 'inline-block' } = Astro.props;
       <div class="text-sm mr-4 dark:text-slate-400">
         ©
         {currentYear} made with ❤️ by
-        <a href="https://ishlahyt.github.io/" target="_blank" class="footer-link fw-bolder"> <b>IshlahYT</b></a>
+        <a
+          href="https://ishlahyt.github.io/"
+          target="_blank"
+          class="footer-link fw-bolder text-secondary dark:text-blue-200 font-bold"
+        >
+          IshlahYT</a
+        >
       </div>
 
       <div class={className}>
