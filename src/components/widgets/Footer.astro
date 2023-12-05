@@ -1,7 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { SITE } from '~/utils/config';
-import { getHomePermalink } from '~/utils/permalinks';
 
 interface Link {
   text?: string;
@@ -26,9 +24,8 @@ export interface Props {
   theme?: string;
 }
 
-const { secondaryLinks = [], links = [], theme = 'light' } = Astro.props;
+const { socialLinks = [], links = [], theme = 'light' } = Astro.props;
 const currentYear = new Date().getFullYear();
-const { text, url, class: className = 'inline-block' } = Astro.props;
 ---
 
 <footer class:list={[{ dark: theme === 'dark' }, 'relative border-t border-gray-200 dark:border-slate-800 not-prose']}>
@@ -37,18 +34,12 @@ const { text, url, class: className = 'inline-block' } = Astro.props;
     <div class="grid grid-cols-12 gap-4 gap-y-8 sm:gap-8 py-8 md:py-12">
       <div class="col-span-12 lg:col-span-4">
         <div class="mb-2">
-          <a class="inline-block font-bold text-xl" href={getHomePermalink()}>{SITE?.name}</a>
+          <a class="inline-block font-bold text-xl" href="#">SPEMDUTA</a>
         </div>
         <div class="text-sm text-muted">
-          {
-            secondaryLinks.map(({ text, href }) => (
-              <a
-                class="text-muted hover:text-gray-700 dark:text-gray-400 hover:underline transition duration-150 ease-in-out mr-2 rtl:mr-0 rtl:ml-2"
-                href={href}
-                set:html={text}
-              />
-            ))
-          }
+          <p class="text-muted dark:text-gray-400 transition duration-150 ease-in-out mr-2 rtl:mr-0 rtl:ml-2">
+            The Humanistic and Futuristic School
+          </p>
         </div>
       </div>
       {
@@ -87,46 +78,26 @@ const { text, url, class: className = 'inline-block' } = Astro.props;
         >
       </div>
 
-      <div class={className}>
-        <a href="https://www.instagram.com/spemduta/">
-          <button
-            class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-            title="Instagram"
-            data-aw-url={url}
-            data-aw-text={text}
-            ><Icon name="tabler:brand-instagram" class="w-6 h-6" />
-          </button>
-        </a>
-        <a href="https://www.youtube.com/@spemduta135">
-          <button
-            class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-            title="Youtube"
-            data-aw-url={url}
-            data-aw-text={text}
-            ><Icon name="tabler:brand-youtube" class="w-6 h-6" />
-          </button>
-        </a>
-        <a href="https://www.tiktok.com/@spemduta?is_from_webapp=1&sender_device=pc">
-          <button
-            class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-            title="Tiktok"
-            data-aw-url={url}
-            data-aw-text={text}
-            ><Icon name="tabler:brand-tiktok" class="w-6 h-6" />
-          </button>
-        </a>
-        <a
-          href="https://api.whatsapp.com/send?phone=6281232331554&text=Assalamualaikum,%20Saya%20ingin%20bertanya%20tentang%20PPDB%20SPEMDUTA."
-        >
-          <button
-            class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-            title="Tiktok"
-            data-aw-url={url}
-            data-aw-text={text}
-            ><Icon name="tabler:brand-whatsapp" class="w-6 h-6" />
-          </button>
-        </a>
-      </div>
+      {
+        socialLinks?.length ? (
+          <ul class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4">
+            {socialLinks.map(({ ariaLabel, href, text, icon }) => (
+              <li>
+                <a
+                  class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                  aria-label={ariaLabel}
+                  href={href}
+                >
+                  {icon && <Icon name={icon} class="w-5 h-5" />}
+                  <Fragment set:html={text} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          ''
+        )
+      }
     </div>
   </div>
 </footer>
