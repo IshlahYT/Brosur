@@ -10,6 +10,10 @@ export const headerData = {
       href: '#',
     },
     {
+      text: 'Gelombang',
+      href: '#',
+    },
+    {
       text: 'Ekstrakurikuler',
       href: '#',
     },

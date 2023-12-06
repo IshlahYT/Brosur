@@ -25,82 +25,35 @@ const {
     <div class="card-article max-w-6xl mx-auto">
       <Headline title={title} subtitle={subtitle} tagline={tagline} />
 
-      {
-        testimonials && testimonials.length > 0 && (
-          <div
-            class="carousel slide grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-            id="carouselExampleIndicators"
-            data-bs-ride="carousel"
-          >
-            <div class="carousel-indicators">
-              {testimonials.map((_, index) => (
-                <button
-                  type="button"
-                  data-bs-target="#carouselExampleIndicators"
-                  data-bs-slide-to={index.toString()}
-                  class={index === 0 ? 'active' : ''}
-                  aria-label={`Slide ${index + 1}`}
-                />
-              ))}
-            </div>
-
-            <div class="carousel-inner">
-              {testimonials.map(({ title, testimonial, image }, index) => (
-                <div class={`carousel-item ${index === 0 ? 'active' : ''} flex h-auto`}>
-                  <div class="carousel-item-content flex flex-col p-4 md:p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-600">
-                    <div class="relative m-auto">
-                      {image && (
-                        <div class="h-180 w-180">
-                          {typeof image === 'string' ? (
-                            <Fragment set:html={image} />
-                          ) : (
-                            <Image
-                              class="h-180 w-180"
-                              width={180}
-                              height={180}
-                              widths={[400, 768]}
-                              layout="fixed"
-                              {...(image as any)}
-                            />
-                          )}
-                        </div>
-                      )}
-                    </div>
-
-                    <hr class="border-slate-200 dark:border-slate-600 my-4" />
-
-                    {title && <h2 class="text-lg font-medium leading-6 pb-4">{title}</h2>}
-                    {testimonial && (
-                      <blockquote class="flex-auto">
-                        <p class="text-muted">" {testimonial} "</p>
-                      </blockquote>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          testimonials &&
+            testimonials.map(({ title, testimonial, name, image }) => (
+              <div class="flex flex-col w-70 p-4 md:p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-600">
+                {title && <h2 class="text-lg font-medium leading-6 pb-4">{title}</h2>}
+                {testimonial && (
+                  <div class="flex justify-center">
+                    {image && (
+                      <div class="h-300 w-400">
+                        {typeof image === 'string' ? (
+                          <Fragment set:html={image} />
+                        ) : (
+                          <Image class="h-300 w-400" width={300} height={300} widths={[250, 768]} {...(image as any)} />
+                        )}
+                      </div>
                     )}
                   </div>
-                </div>
-              ))}
-            </div>
+                )}
 
-            <button
-              class="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide="prev"
-            >
-              <span class="carousel-control-prev-icon" aria-hidden="true" />
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide="next"
-            >
-              <span class="carousel-control-next-icon" aria-hidden="true" />
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-        )
-      }
+                <hr class="border-slate-200 dark:border-slate-600 my-4" />
+
+                <div class="grow ml-3 rtl:ml-0 rtl:mr-3">
+                  {name && <p class="text-xl text-center font-semibold">{name}</p>}
+                </div>
+              </div>
+            ))
+        }
+      </div>
 
       {
         callToAction && (
@@ -111,4 +64,4 @@ const {
       }
     </div>
   </div>
-</WidgetWrapper>;
+</WidgetWrapper>
