@@ -29,14 +29,19 @@ const metadata = {
     image={{ src: '~/assets/images/DSC05622.png', alt: 'AstroWind Hero Image' }}
   >
     <Fragment slot="title">
-      <span class="text-accent dark:text-white highlight"><b>SPEMDUTA</b></span>
+      <span
+        class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 dark:text-white highlight"
+        ><b>SPEMDUTA</b></span
+      >
       <br />
        The Humanistic and Futuristic School
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">SPEMDUTA</span> merupakan sekolah
+        Dengan visi Sekolah Islam yang Humanis dan Futuris, <br />SMP Muhammadiyah 2 Taman berkomitmen memberikan
+        pendidikan komprehensif dengan berlandaskan nilai islami guna menghasilkan lulusan yang unggul dalam Imtaq dan
+        Ipteks.
       </span>
     </Fragment>
   </Hero2>
@@ -44,7 +49,7 @@ const metadata = {
   <!-- Pricing Widget ******************* -->
 
   <Prices
-    title="Program Kelas"
+    title="PROGRAM KELAS UNGGULAN"
     subtitle="SMP Muhammadiyah 2 Taman"
     actions={[
       {
@@ -58,7 +63,7 @@ const metadata = {
     prices={[
       {
         title: 'M-ICO',
-        subtitle: 'lorem ipmsum dolar suit',
+        subtitle: 'Muhammadiyah International Class Orientation',
         image: { src: '~/assets/images/exel.png', alt: 'exellent image' },
         price: 2,
         period: 'Per Month',
@@ -77,14 +82,13 @@ const metadata = {
           },
         ],
         callToAction: {
-          target: '_blank',
           text: 'Get started',
           href: '#',
         },
       },
       {
         title: 'Tahfidz Class',
-        subtitle: 'lorem ipmsum dolar suit',
+        subtitle: 'Kelas Pendampingan Hafalan Al-Quran',
         image: { src: '~/assets/images/exel.png', alt: 'exellent image' },
         price: 3,
         period: 'Per Month',
@@ -100,14 +104,13 @@ const metadata = {
           },
         ],
         callToAction: {
-          target: '_blank',
           text: 'Get started',
           href: '#',
         },
       },
       {
         title: 'Excellent Class',
-        subtitle: 'lorem ipmsum dolar suit',
+        subtitle: 'Kelas Pendampingan Talent',
         image: { src: '~/assets/images/exel.png', alt: 'exellent image' },
         price: 1,
         period: 'per month',
@@ -126,9 +129,8 @@ const metadata = {
           },
         ],
         callToAction: {
-          target: '_blank',
           text: 'Get started',
-          href: '#',
+          href: '~/pages/404.astro',
         },
       },
     ]}
@@ -142,28 +144,28 @@ const metadata = {
     items={[
       {
         title: 'Formulir <span class="font-medium">Pendaftaran</span>',
-        description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
+        description: 'Calon wali/peserta didik mengisi dan membayar formulir pendaftaran sebesar Rp250.000',
         icon: 'tabler:file-text',
+      },
+      {
+        title: 'Pembiayaan <span class="font-medium">Daftar Ulang</span>',
+        description: 'Calon wali/peserta didik melakukan pembayaran Uang gedung, SPP, dan Uang Kegiatan.',
+        icon: 'tabler:coins',
       },
       {
         title: 'Interview <span class="font-medium">Calon Peserta Didik</em>',
         description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
+          'Calon peserta didik melakukan interview seputar kemampuan dasar dan peminatan sesuai dengan jadwal yang disepakati.',
         icon: 'tabler:messages',
       },
       {
-        title: 'Pembiayaan <span class="font-medium">Daftar Ulang</span>',
-        description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:coins',
-      },
-      {
-        title: 'Pengambilan <span class="font-medium">Seragam</span>',
+        title: 'Pembelian <span class="font-medium">Seragam</span>',
+        description: 'Calon wali/peserta didik melakukan pembelian dan pengambilan seragam di koperasi sekolah.',
         icon: 'tabler:shirt',
       },
       {
-        title: 'Ready!',
+        title: 'Fortasi',
+        description: 'Peserta didik mengikuti serangkaian kegiatan pengenalan lingkungan sekolah.',
         icon: 'tabler:check',
       },
     ]}

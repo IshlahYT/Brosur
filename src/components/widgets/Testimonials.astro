@@ -22,7 +22,7 @@ const {
 
 <style>
   .grid {
-    margin: 0 15px;
+    margin: 0 12px;
     display: flex;
     position: relative;
   }
@@ -37,9 +37,23 @@ const {
       flex-wrap: nowrap; /* Ensure cards remain in a single row on small screens */
       overflow-x: auto;
     }
+    .galeri {
+      white-space: nowrap;
+      overflow: hidden;
+      padding: 60px;
+    }
 
     .card-content {
       overflow: auto; /* Enable horizontal scrolling for small screens */
+    }
+    .card-article:before {
+      left: 0px;
+      background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+    }
+
+    .card-article:after {
+      right: 0px;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
     }
   }
 
@@ -50,6 +64,25 @@ const {
     100% {
       transform: translateX(calc(-100%)); /* Adjusted to ensure a seamless loop */
     }
+  }
+  .card-article:before,
+  .card-article:after {
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 90%;
+    content: '';
+    z-index: 2;
+  }
+
+  .card-article:before {
+    left: 24px;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+  }
+
+  .card-article:after {
+    right: 24px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
   }
 
   .galeri {
@@ -66,7 +99,7 @@ const {
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`card_container ${classes?.container ?? ''}`} bg={bg}>
   <div class="card-content">
-    <div class="card-article max-w-6xl mx-auto">
+    <div class="card-article">
       <Headline title={title} subtitle={subtitle} tagline={tagline} />
 
       <div class="galeri">

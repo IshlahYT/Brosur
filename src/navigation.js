@@ -18,7 +18,7 @@ export const headerData = {
       href: '#',
     },
   ],
-  actions: [{ text: 'Daftar', href: 'https://smpmduta-ppdb.madinapay.id/auth', target: '_blank' }],
+  actions: [{ icon: 'tabler:brand-whatsapp', text: 'Contact', href: 'https://api.whatsapp.com/send?phone=6281232331554&text=Assalamualaikum,%20Saya%20ingin%20bertanya%20tentang%20PPDB%20SPEMDUTA.', target: '_blank' }],
 };
 
 export const footerData = {
