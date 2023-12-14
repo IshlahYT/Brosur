@@ -8,8 +8,6 @@ import type { Testimonials } from '~/types';
 
 const {
   title = '',
-  subtitle = '',
-  tagline = '',
   testimonials = [],
   callToAction,
 
@@ -32,40 +30,7 @@ const {
     transition: transform 0.5s ease-in-out;
   }
 
-  @media (max-width: 768px) {
-    .grid {
-      flex-wrap: nowrap; /* Ensure cards remain in a single row on small screens */
-      overflow-x: auto;
-    }
-    .galeri {
-      white-space: nowrap;
-      overflow: hidden;
-      padding: 60px;
-    }
-
-    .card-content {
-      overflow: auto; /* Enable horizontal scrolling for small screens */
-    }
-    .card-article:before {
-      left: 0px;
-      background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
-    }
-
-    .card-article:after {
-      right: 0px;
-      background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
-    }
-  }
-
-  @keyframes slide {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(calc(-100%)); /* Adjusted to ensure a seamless loop */
-    }
-  }
-  .card-article:before,
+  /* .card-article:before,
   .card-article:after {
     position: absolute;
     top: 0;
@@ -83,6 +48,37 @@ const {
   .card-article:after {
     right: 24px;
     background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+  } */
+
+  hr {
+    width: 300px;
+  }
+
+  @media (max-width: 768px) {
+    hr {
+      width: 200px;
+    }
+
+    .grid {
+      margin: 0 10px;
+      gap: 10px;
+    }
+    /* .card-article:before {
+      left: 16px;
+    }
+
+    .card-article:after {
+      right: 16px;
+    } */
+  }
+
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-100%));
+    }
   }
 
   .galeri {
@@ -100,7 +96,7 @@ const {
 <WidgetWrapper id={id} isDark={isDark} containerClass={`card_container ${classes?.container ?? ''}`} bg={bg}>
   <div class="card-content">
     <div class="card-article">
-      <Headline title={title} subtitle={subtitle} tagline={tagline} />
+      <Headline title={title} />
 
       <div class="galeri">
         <div class="scroll">
@@ -108,10 +104,10 @@ const {
             {
               testimonials &&
                 testimonials.map(({ title, testimonial, name, image }) => (
-                  <div class="flex flex-col w-300 p-4 md:p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-600">
+                  <div class="flex flex-col w-300 bg-white/50 p-4 md:p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-600">
                     {title && <h2 class="text-lg font-medium leading-6 pb-4">{title}</h2>}
                     {testimonial && (
-                      <div class="flex justify-center">
+                      <div class="justify-center">
                         {image && (
                           <div class="h-300 w-400">
                             {typeof image === 'string' ? (
@@ -132,9 +128,7 @@ const {
 
                     <hr class="border-slate-200 dark:border-slate-600 my-4" />
 
-                    <div class="grow ml-3 rtl:ml-0 rtl:mr-3">
-                      {name && <p class="text-xl text-center font-semibold">{name}</p>}
-                    </div>
+                    <div>{name && <p class="text-lg text-center font-semibold">{name}</p>}</div>
                   </div>
                 ))
             }
@@ -145,7 +139,7 @@ const {
             {
               testimonials &&
                 testimonials.map(({ title, testimonial, name, image }) => (
-                  <div class="flex flex-col w-70 p-4 md:p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-600">
+                  <div class="flex flex-col w-300 bg-white/50 p-4 md:p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-600">
                     {title && <h2 class="text-lg font-medium leading-6 pb-4">{title}</h2>}
                     {testimonial && (
                       <div class="flex justify-center">
@@ -170,7 +164,7 @@ const {
                     <hr class="border-slate-200 dark:border-slate-600 my-4" />
 
                     <div class="grow ml-3 rtl:ml-0 rtl:mr-3">
-                      {name && <p class="text-xl text-center font-semibold">{name}</p>}
+                      {name && <p class="text-lg text-center font-semibold">{name}</p>}
                     </div>
                   </div>
                 ))

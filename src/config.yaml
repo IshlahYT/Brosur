@@ -1,6 +1,6 @@
 site:
   name: SPEMDUTA
-  site: 'https://astrowind.vercel.app'
+  site: 'https://smpmduta-ppdb.madinapay.id/auth'
   base: '/'
   trailingSlash: false
 

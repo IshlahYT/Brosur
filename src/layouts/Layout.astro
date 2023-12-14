@@ -34,7 +34,13 @@ const { language, textDirection } = I18N;
     <Analytics />
   </head>
 
-  <body class="antialiased text-default bg-page tracking-tight">
+  <body class="antialiased text-default tracking-tight">
+    <div class="absolute items-center justify-center">
+      <div class="bg-shape1 bg-teal opacity-50 bg-blur"></div>
+      <div class="bg-shape2 bg-purple opacity-50 bg-blur"></div>
+      <div class="bg-shape3 bg-blue opacity-50 bg-blur"></div>
+    </div>
+
     <slot />
 
     <BasicScripts />

@@ -1,21 +1,21 @@
-// import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import { getPermalink } from './utils/permalinks';
 export const headerData = {
   links: [
     {
       text: 'Program Kelas',
-      href: '#',
+      href: getPermalink('/#program'),
     },
     {
       text: 'Alur Pendaftaran',
-      href: '#',
+      href: getPermalink('/#alur'),
     },
     {
       text: 'Gelombang',
-      href: '#',
+      href: getPermalink('/ico'),
     },
     {
       text: 'Ekstrakurikuler',
-      href: '#',
+      href: getPermalink('/#ekstra'),
     },
   ],
   actions: [{ icon: 'tabler:brand-whatsapp', text: 'Contact', href: 'https://api.whatsapp.com/send?phone=6281232331554&text=Assalamualaikum,%20Saya%20ingin%20bertanya%20tentang%20PPDB%20SPEMDUTA.', target: '_blank' }],
