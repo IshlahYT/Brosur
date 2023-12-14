@@ -1,6 +1,6 @@
 site:
   name: SPEMDUTA
-  site: 'https://smpmduta-ppdb.madinapay.id/auth'
+  site: 'https://brosur.smpmduta.sch.id/'
   base: '/'
   trailingSlash: false
 
@@ -9,14 +9,16 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: BROSUR
+    template: '%s — BROSUR'
+  description: "Dengan visi Sekolah Islam yang Humanis dan Futuris, SMP Muhammadiyah 2 Taman berkomitmen memberikan
+        pendidikan komprehensif dengan berlandaskan nilai islami guna menghasilkan lulusan yang unggul dalam Imtaq dan
+        Ipteks."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: BROSUR
     images:
       - url: '~/assets/images/default.png'
         width: 1200
@@ -63,7 +65,7 @@ apps:
 analytics:
   vendors:
     googleAnalytics:
-      id: null # or "G-XXXXXXXXXX"
+      id: "G-L328CXH4PB"
 
 ui:
   theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"

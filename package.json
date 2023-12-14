@@ -13,6 +13,7 @@
     "lint:eslint": "eslint . --ext .js,.ts,.astro"
   },
   "dependencies": {
+    "@analytics/google-analytics": "^1.0.7",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.0",
     "@astrolib/analytics": "^0.4.2",
@@ -20,6 +21,7 @@
     "@fontsource-variable/inter": "^5.0.8",
     "@popperjs/core": "^2.11.8",
     "@types/bootstrap": "^5.2.9",
+    "analytics": "^0.8.9",
     "astro": "^3.0.12",
     "astro-bootstrap": "^0.6.1",
     "astro-icon": "^1.0.0-next.2",
@@ -32,7 +34,7 @@
   },
   "devDependencies": {
     "@astrojs/mdx": "^1.0.0",
-    "@astrojs/partytown": "^2.0.0",
+    "@astrojs/partytown": "^2.0.2",
     "@astrojs/tailwind": "5.0.0",
     "@iconify-json/flat-color-icons": "^1.1.7",
     "@iconify-json/tabler": "^1.1.89",
