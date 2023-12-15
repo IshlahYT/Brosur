@@ -121,6 +121,15 @@
   flex-direction: row;
 }
 
+@media (max-width: 768px) {
+  .absolute {
+    position: absolute;
+    inset: 0;
+    justify-content: center;
+    flex-direction: row;
+  }
+}
+
 .justify-center {
   justify-content: center;
 }

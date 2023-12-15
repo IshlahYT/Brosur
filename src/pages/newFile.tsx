@@ -1,0 +1,228 @@
+import Layout from '~/layouts/PageLayout.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Prices from '~/components/widgets/Pricing.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import { metadata } from './index.astro';
+
+<Fragment>
+<Layout metadata={metadata}>
+{/** Hero Widget ******************* */}
+
+<Hero2 tagline="SMP Muhammadiyah 2 Taman" actions={[
+{
+variant: 'primary',
+text: 'Daftar Sekarang',
+href: 'https://smpmduta-ppdb.madinapay.id/auth',
+target: '_blank',
+icon: 'tabler:square-rounded-arrow-right',
+},
+]} image={{ src: '~/assets/images/DSC05622.png', alt: 'hero image' }}>
+<Fragment slot="title">
+<span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 dark:text-white highlight"><b>SPEMDUTA</b></span>
+<br />
+The Humanistic and Futuristic School
+</Fragment>
+
+<Fragment slot="subtitle">
+<span class="hidden sm:inline">
+Dengan visi Sekolah Islam yang Humanis dan Futuris, <br />SMP Muhammadiyah 2 Taman berkomitmen memberikan
+pendidikan komprehensif dengan berlandaskan nilai islami guna menghasilkan lulusan yang unggul dalam Imtaq dan
+Ipteks.
+</span>
+</Fragment>
+</Hero2>
+
+{/** Pricing Widget ******************* */}
+
+<Prices id="program" title="PROGRAM KELAS UNGGULAN" subtitle="SMP Muhammadiyah 2 Taman" actions={[
+{
+variant: 'primary',
+text: 'Daftar Sekarang',
+href: 'https://www.ppdb.smpmduta.sch.id/',
+target: '_blank',
+icon: 'tabler:square-rounded-arrow-right',
+},
+]} prices={[
+{
+title: 'M-ICO',
+subtitle: 'Kelas Internasional',
+image: { src: '~/assets/images/exel.png', alt: 'exellent image' },
+price: 2,
+period: 'Per Month',
+items: [
+{
+description: 'Public Speaking',
+},
+{
+description: 'Broadcasting and Show',
+},
+{
+description: 'Writing and Design ',
+},
+{
+description: 'English Olympiad',
+},
+],
+callToAction: {
+text: 'Get started',
+href: '#',
+},
+},
+{
+title: 'Tahfidz Class',
+subtitle: 'Kelas Pendampingan Hafalan Al-Quran',
+image: { src: '~/assets/images/exel.png', alt: 'exellent image' },
+price: 3,
+period: 'Per Month',
+items: [
+{
+description: 'Qori’',
+},
+{
+description: 'Public Speaking / Pildacil',
+},
+{
+description: 'Khot / Kaligrafi',
+},
+],
+callToAction: {
+text: 'Get started',
+href: '#',
+},
+},
+{
+title: 'Excellent Class',
+subtitle: 'Kelas Pendampingan Talent',
+image: { src: '~/assets/images/exel.png', alt: 'exellent image' },
+price: 1,
+period: 'per month',
+items: [
+{
+description: 'Science ',
+},
+{
+description: 'Technology',
+},
+{
+description: 'Art (Broadcasting)',
+},
+{
+description: 'Enterprenur Cooking',
+},
+],
+callToAction: {
+text: 'Get started',
+href: '~/pages/404.astro',
+},
+},
+]} />
+
+{/** Steps Widget ****************** */}
+
+<Steps id="alur" title="Alur Pendaftaran" subtitle="Calon Peserta Didik Baru SMP Muhammadiyah 2 Taman" items={[
+{
+title: 'Formulir <span class="font-medium">Pendaftaran</span>',
+description: 'Calon wali/peserta didik mengisi dan membayar formulir pendaftaran sebesar Rp250.000',
+icon: 'tabler:file-text',
+},
+{
+title: 'Pembiayaan <span class="font-medium">Daftar Ulang</span>',
+description: 'Calon wali/peserta didik melakukan pembayaran Uang gedung, SPP, dan Uang Kegiatan.',
+icon: 'tabler:coins',
+},
+{
+title: 'Interview <span class="font-medium">Calon Peserta Didik</em>',
+description: 'Calon peserta didik melakukan interview seputar kemampuan dasar dan peminatan sesuai dengan jadwal yang disepakati.',
+icon: 'tabler:messages',
+},
+{
+title: 'Pembelian <span class="font-medium">Seragam</span>',
+description: 'Calon wali/peserta didik melakukan pembelian dan pengambilan seragam di koperasi sekolah.',
+icon: 'tabler:shirt',
+},
+{
+title: 'Fortasi',
+description: 'Peserta didik mengikuti serangkaian kegiatan pengenalan lingkungan sekolah.',
+icon: 'tabler:check',
+},
+]} />
+
+<Testimonials id="ekstra" title="Ekstrakurikuler" testimonials={[
+{
+testimonial: `The designs are not only visually appealing but also highly professional. The templates have saved me a significant amount of time while helping me make a lasting impression on my clients.`,
+name: 'Panahan',
+job: 'Front-end developer',
+image: {
+src: '~/assets/images/panah.png',
+alt: 'Panahan',
+},
+},
+{
+testimonial: `It beautifully showcases my work, with its clean and elegant design that lets my photographs shine. Customization was a breeze, even for a non-tech person like me. The result is a professional and immersive portfolio that's garnered numerous compliments.`,
+name: 'Tapak Suci',
+job: 'Photographer',
+image: {
+src: '~/assets/images/tapak.png',
+alt: 'Tapak Suci',
+},
+},
+{
+testimonial: `I discovered these templates and I'm impressed by their variety and quality. They've helped me establish a consistent brand image across my marketing and social platforms, elevating my business's overall appearance.`,
+name: 'Tari Tradisional',
+job: 'Small business owner',
+image: {
+src: '~/assets/images/tari.png',
+alt: 'Tari Traditional',
+},
+},
+{
+testimonial: `I discovered these templates and I'm impressed by their variety and quality. They've helped me establish a consistent brand image across my marketing and social platforms, elevating my business's overall appearance.`,
+name: 'Palang Merah Remaja',
+job: 'Small business owner',
+image: {
+src: '~/assets/images/pmr.png',
+alt: 'PMR',
+},
+},
+]} testimonials={[
+{
+testimonial: `The designs are not only visually appealing but also highly professional. The templates have saved me a significant amount of time while helping me make a lasting impression on my clients.`,
+name: 'Panahan',
+job: 'Front-end developer',
+image: {
+src: '~/assets/images/panah.png',
+alt: 'Panahan',
+},
+},
+{
+testimonial: `It beautifully showcases my work, with its clean and elegant design that lets my photographs shine. Customization was a breeze, even for a non-tech person like me. The result is a professional and immersive portfolio that's garnered numerous compliments.`,
+name: 'Tapak Suci',
+job: 'Photographer',
+image: {
+src: '~/assets/images/tapak.png',
+alt: 'Tapak Suci',
+},
+},
+{
+testimonial: `I discovered these templates and I'm impressed by their variety and quality. They've helped me establish a consistent brand image across my marketing and social platforms, elevating my business's overall appearance.`,
+name: 'Tari Tradisional',
+job: 'Small business owner',
+image: {
+src: '~/assets/images/tari.png',
+alt: 'Tari Traditional',
+},
+},
+{
+testimonial: `I discovered these templates and I'm impressed by their variety and quality. They've helped me establish a consistent brand image across my marketing and social platforms, elevating my business's overall appearance.`,
+name: 'Palang Merah Remaja',
+job: 'Small business owner',
+image: {
+src: '~/assets/images/pmr.png',
+alt: 'PMR',
+},
+},
+]} />
+</Layout>
+
+</Fragment>;

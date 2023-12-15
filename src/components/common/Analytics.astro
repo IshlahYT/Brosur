@@ -3,6 +3,16 @@ import { GoogleAnalytics } from '@astrolib/analytics';
 import { ANALYTICS } from '~/utils/config';
 ---
 
+<script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-L328CXH4PB"></script>
+<script type="text/partytown">
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-L328CXH4PB');
+</script>
+
 {
   ANALYTICS?.vendors?.googleAnalytics?.id ? (
     <GoogleAnalytics

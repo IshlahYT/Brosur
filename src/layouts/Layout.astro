@@ -3,13 +3,13 @@ import '~/assets/styles/tailwind.css';
 
 import { I18N } from '~/utils/config';
 
+// import GoogleAnalytics from './GoogleAnalytics.astro';
 import CommonMeta from '~/components/common/CommonMeta.astro';
 import Favicons from '~/components/Favicons.astro';
 import CustomStyles from '~/components/CustomStyles.astro';
 import ApplyColorMode from '~/components/common/ApplyColorMode.astro';
 import Metadata from '~/components/common/Metadata.astro';
 import SiteVerification from '~/components/common/SiteVerification.astro';
-import Analytics from '~/components/common/Analytics.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
 
 import type { MetaData as MetaDataType } from '~/types';
@@ -25,22 +25,21 @@ const { language, textDirection } = I18N;
 <!doctype html>
 <html lang={language} dir={textDirection} class="2xl:text-[20px]">
   <head>
+    <!-- <GoogleAnalytics /> -->
     <CommonMeta />
     <Favicons />
     <CustomStyles />
     <ApplyColorMode />
     <Metadata {...metadata} />
     <SiteVerification />
-    <Analytics id="G-L328CXH4PB" />
   </head>
 
-  <body class="antialiased text-default tracking-tight">
-    <div class="absolute items-center justify-center">
+  <body class="antialiased text-default bg-page tracking-tight">
+    <div class="absolute items-center justify-center columns-12 bg-fixed">
       <div class="bg-shape1 bg-teal opacity-50 bg-blur"></div>
       <div class="bg-shape2 bg-purple opacity-50 bg-blur"></div>
       <div class="bg-shape3 bg-blue opacity-50 bg-blur"></div>
     </div>
-
     <slot />
 
     <BasicScripts />
