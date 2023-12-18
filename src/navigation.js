@@ -3,19 +3,19 @@ export const headerData = {
   links: [
     {
       text: 'Program Kelas',
-      href: getPermalink('/#program'),
+      href: getPermalink('/#program-kelas'),
     },
     {
       text: 'Alur Pendaftaran',
-      href: getPermalink('/#alur'),
+      href: getPermalink('/#alur-pendaftaran'),
     },
     {
       text: 'Gelombang',
-      href: getPermalink('/ico'),
+      href: "#"
     },
     {
       text: 'Ekstrakurikuler',
-      href: getPermalink('/#ekstra'),
+      href: getPermalink('/#ekstrakurikuler'),
     },
   ],
   actions: [{ icon: 'tabler:brand-whatsapp', text: 'Contact', href: 'https://api.whatsapp.com/send?phone=6281232331554&text=Assalamualaikum,%20Saya%20ingin%20bertanya%20tentang%20PPDB%20SPEMDUTA.', target: '_blank' }],
@@ -26,7 +26,7 @@ export const footerData = {
     {
       title: 'Navigation',
       links: [
-        { text: 'Alur Pendaftaran', href: '#' },
+        { text: 'Alur Pendaftaran', href: getPermalink('/#alur-pendaftaran'), },
         { text: 'Gelombang', href: '#' },
         // { text: 'Team', href: '#' },
         // { text: 'Enterprise', href: '#' },

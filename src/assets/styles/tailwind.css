@@ -114,11 +114,11 @@
 }
 
 .absolute {
-  position: absolute;
   inset: 0;
   justify-content: center;
   display: inline-flex;
   flex-direction: row;
+  background-position: center;
 }
 
 @media (max-width: 768px) {
